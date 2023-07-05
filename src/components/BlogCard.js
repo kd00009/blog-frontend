@@ -25,7 +25,9 @@ export default function BlogCard({
   const navigate = useNavigate();
   const handledelete = async () => {
     try {
-      const { data } = await axios.delete("/api/blog/delete-blog/" + id);
+      const { data } = await axios.delete(
+        "https://blog-backend-hp4b.onrender.com/api/blog/delete-blog/" + id
+      );
       if (data?.success) {
         toast.success("Blog deleted successfully");
         navigate("/blogs");
@@ -54,7 +56,9 @@ export default function BlogCard({
     >
       {isuser && (
         <Box display={"flex"} gap={1} justifyContent={"space-between"}>
-          <Link to={`/blog-details/${id}`}>
+          <Link
+            to={`https://blog-backend-hp4b.onrender.com/blog-details/${id}`}
+          >
             <IconButton>
               <ModeEditIcon />
             </IconButton>
