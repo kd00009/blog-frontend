@@ -8,7 +8,10 @@ import { toast } from "react-hot-toast";
 
 const BlogDetails = () => {
   const navigate = useNavigate();
-  const [inputs, setInputs] = React.useState({});
+  const [inputs, setInputs] = React.useState({
+    title: "",
+    description: "",
+  });
   const [blog, setBlog] = useState();
 
   const id = useParams().id;
@@ -45,7 +48,6 @@ const BlogDetails = () => {
           title: inputs.title,
           description: inputs.description,
           image: inputs.image,
-          user: inputs.user,
         }
       );
       if (data?.success) {
@@ -56,6 +58,13 @@ const BlogDetails = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleinput = (e) => {
+    setInputs({
+      ...inputs,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -102,7 +111,7 @@ const BlogDetails = () => {
             name="title"
             variant="outlined"
             value={inputs.title}
-            onChange={(e) => setInputs({ ...inputs, title: e.target.value })}
+            onChange={handleinput}
           />
           <InputLabel
             sx={{
@@ -121,9 +130,7 @@ const BlogDetails = () => {
             name="description"
             variant="outlined"
             value={inputs.description}
-            onChange={(e) =>
-              setInputs({ ...inputs, description: e.target.value })
-            }
+            onChange={handleinput}
           />
           <InputLabel
             sx={{
@@ -142,7 +149,7 @@ const BlogDetails = () => {
             name="image"
             variant="outlined"
             value={inputs.image}
-            onChange={(e) => setInputs({ ...inputs, image: e.target.value })}
+            onChange={handleinput}
           />
           <Button variant="contained" type="submit" color="warning">
             Update

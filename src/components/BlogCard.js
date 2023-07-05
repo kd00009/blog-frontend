@@ -75,7 +75,7 @@ export default function BlogCard({
         title={username}
         subheader={time.slice(0, 10).toUpperCase()}
       />
-      <CardMedia component="img" height="194" image={image} alt="Paella dish" />
+      <CardMedia component="img" height="194" image={image} alt="blog image" />
       <CardContent>
         <Typography variant="h5" color="text.primary">
           {title}
