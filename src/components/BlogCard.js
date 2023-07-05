@@ -56,9 +56,7 @@ export default function BlogCard({
     >
       {isuser && (
         <Box display={"flex"} gap={1} justifyContent={"space-between"}>
-          <Link
-            to={`https://blog-backend-hp4b.onrender.com/blog-details/${id}`}
-          >
+          <Link to={`https://blog-backend-hp4b.onrender.com/get-blog/${id}`}>
             <IconButton>
               <ModeEditIcon />
             </IconButton>
