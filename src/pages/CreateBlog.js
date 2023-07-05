@@ -16,12 +16,15 @@ const CreateBlog = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("./api/blog/create-blog", {
-        title: inputs.title,
-        description: inputs.description,
-        image: inputs.image,
-        user: id,
-      });
+      const { data } = await axios.post(
+        "https://blog-backend-hp4b.onrender.com/api/blog/create-blog",
+        {
+          title: inputs.title,
+          description: inputs.description,
+          image: inputs.image,
+          user: id,
+        }
+      );
       if (data?.success) {
         toast.success("blog created successfully");
         navigate("/my-blogs");

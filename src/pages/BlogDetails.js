@@ -37,12 +37,15 @@ const BlogDetails = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put("/api/blog/update-blog/" + id, {
-        title: inputs.title,
-        description: inputs.description,
-        image: inputs.image,
-        user: inputs.user,
-      });
+      const { data } = await axios.put(
+        "https://blog-backend-hp4b.onrender.com/api/blog/update-blog/" + id,
+        {
+          title: inputs.title,
+          description: inputs.description,
+          image: inputs.image,
+          user: inputs.user,
+        }
+      );
       if (data?.success) {
         toast.success("Blog updated successfully");
         navigate("/my-blogs");

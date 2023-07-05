@@ -7,7 +7,9 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const getallblogs = async () => {
     try {
-      const { data } = await axios.get("/api/blog/all-blog");
+      const { data } = await axios.get(
+        "https://blog-backend-hp4b.onrender.com/api/blog/all-blog"
+      );
       if (data?.success) {
         setBlogs(data?.blogs);
       }

@@ -8,7 +8,9 @@ const UserBlogs = () => {
   const getuserblogs = async () => {
     try {
       const id = localStorage.getItem("userid");
-      const { data } = await axios.get("/api/blog/user-blog/" + id);
+      const { data } = await axios.get(
+        "https://blog-backend-hp4b.onrender.com/api/blog/user-blog/" + id
+      );
       if (data?.success) {
         setBlogs(data?.userblog.blogs);
       }
