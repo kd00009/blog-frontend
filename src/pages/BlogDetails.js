@@ -16,7 +16,9 @@ const BlogDetails = () => {
   const getBlogDetails = async () => {
     console.log(blog);
     try {
-      const { data } = await axios.get("/api/blog/get-blog/" + id);
+      const { data } = await axios.get(
+        "https://blog-backend-hp4b.onrender.com/api/blog/get-blog/" + id
+      );
       if (data?.success) {
         setBlog(data?.blog);
         setInputs({
