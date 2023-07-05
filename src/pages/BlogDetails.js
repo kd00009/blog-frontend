@@ -10,9 +10,11 @@ const BlogDetails = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = React.useState({});
   const [blog, setBlog] = useState();
+
   const id = useParams().id;
 
   const getBlogDetails = async () => {
+    console.log(blog);
     try {
       const { data } = await axios.get("/api/blog/get-blog/" + id);
       if (data?.success) {
@@ -30,7 +32,7 @@ const BlogDetails = () => {
 
   useEffect(() => {
     getBlogDetails();
-  }, [id]);
+  });
 
   const handlesubmit = async (e) => {
     e.preventDefault();
