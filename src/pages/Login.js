@@ -23,10 +23,13 @@ const Login = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("./api/user/login", {
-        email: inputs.email,
-        password: inputs.password,
-      });
+      const { data } = await axios.post(
+        "https://blog-backend-hp4b.onrender.com/api/user/login",
+        {
+          email: inputs.email,
+          password: inputs.password,
+        }
+      );
       if (data.success) {
         localStorage.setItem("userid", data?.user._id);
         dispatch(authActions.login(data));
