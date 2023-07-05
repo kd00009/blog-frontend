@@ -20,11 +20,14 @@ const Register = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("./api/user/register", {
-        username: inputs.name,
-        email: inputs.email,
-        password: inputs.password,
-      });
+      const { data } = await axios.post(
+        "https://blog-backend-hp4b.onrender.com/api/user/register",
+        {
+          username: inputs.name,
+          email: inputs.email,
+          password: inputs.password,
+        }
+      );
       if (data) {
         toast.success("registered successfully");
         navigate("/Login");
@@ -33,6 +36,7 @@ const Register = () => {
       console.log(error);
     }
   };
+
   return (
     <>
       <form onSubmit={handlesubmit}>
